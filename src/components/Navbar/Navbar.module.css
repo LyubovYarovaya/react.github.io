@@ -1,0 +1,12 @@
+.nav {
+  background-color: #83b3b5;
+  grid-area: nav;
+  padding-top: 32px;
+}
+.nav ul{
+  list-style-type: none;
+  margin: 0;
+}
+.item {
+  color: white;
+}
