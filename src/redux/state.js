@@ -1,12 +1,15 @@
-import rerenderEntireTree from "../render";
+let rerenderEntireTree = () => {
+
+}
 
 let state = {
     profilePage: {
         posts: [
-            {id: 1, message: 'Many desktop publishing packages and web page editors now use Lorem Ipsum',  likeCount: 12},
-            {id: 2, message: 'Many desktop publishing packages',  likeCount: 1},
-            {id: 3, message: 'Many desktop',  likeCount: 33},
+            {id: 1, message: 'Post wall',  likeCount: 12},
+            {id: 2, message: 'Post wall 2',  likeCount: 1},
+            {id: 3, message: 'Post wall 3',  likeCount: 33},
         ],
+        newPostText: 'fix'
     },
     
     dialogsPage: {
@@ -28,14 +31,25 @@ let state = {
     },
 }
 
-export let addPost = (addPost) => {
+export const addPost = () => {
     let newPost = {
         id: 4,
-        message: addPost,  
-        likeCount: 5
+        message: state.profilePage.newPostText,  
+        likeCount: 0
     };
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    
     rerenderEntireTree (state);
+}
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree (state);
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 

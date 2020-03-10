@@ -1,16 +1,25 @@
 .nav {
-  background-color: #83b3b5;
+  background-color: white;
   grid-area: nav;
-  padding-top: 32px;
-  min-width: 200px;
+  min-width: 220px;
+  width: 100%;
+  padding: 21px 0;
 }
+
 .nav ul{
   list-style-type: none;
   margin: 0;
 }
-.item {
-  color: white;
+
+.nav ul li {
+  margin-bottom: 5px;
 }
+
+.item {
+  color: #333333;
+  font-weight: 700;
+}
+
 .item.active {
-  color: blue;
+  color: #dc4734;
 }

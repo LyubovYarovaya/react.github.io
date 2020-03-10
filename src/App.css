@@ -2,14 +2,14 @@ a{
   text-decoration: none;
 }
 .page{
-  height: 100vh;
   display: grid;
-  grid-template-rows:  50px auto;
+  grid-template-rows:  min-content auto;
   grid-template-columns: 2fr 10fr;
   grid-template-areas:  "header header"
                         "nav content";
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+  background-color: #f1f1f1;
 }
 
 

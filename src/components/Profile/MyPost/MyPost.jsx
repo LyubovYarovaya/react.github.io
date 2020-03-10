@@ -1,22 +1,37 @@
 import React from 'react';
 import style from './MyPost.module.css';
+import Post from './Post/Post';
 
 const MyPost = (props) => {
+
+  
+  let postElem = props.posts.map( p => <Post message={p.message} count={p.likeCount} /> )
+  let newPostElem = React.createRef();
+
+  let addPost = () => {
+    props.addPost();
+  }
+
+  let onPostChange = () => {
+    let text = newPostElem.current.value;
+    props.updateNewPostText(text);
+  }
 
     return (
       <div className={style.wrap}>
         <div className={style.post}>
-          <div className={style.item}>
-            <a href="#"><img src="https://i.pinimg.com/564x/50/63/a3/5063a3299fd073d4c847e86cd6cec31e.jpg" alt=""/></a> 
+          <div className={style.ava}>
+            <a href="#" alt="Ava"><img src="https://demo.hasthemes.com/adda-preview/adda/assets/images/profile/profile-1.jpg" alt="Ava"/></a>
           </div>
-          {props.message}
-        </div>
-        <div className={style.img}>
-          <img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-favorite-2.png" alt=""/>
-          <div className={style.count}>
-            {props.count}
+          <div className={style.addPost}>
+              <textarea ref={newPostElem} name="text" onChange={onPostChange} value={props.newPostText}></textarea>
+              <button onClick={addPost}>Add post</button>
+          </div>
+          <div className={style.postItem}>
+            {postElem}
           </div>
         </div>
+        
       </div>
   )
 }
