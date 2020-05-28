@@ -15,11 +15,11 @@ const App = (props) => {
         <Navbar/>
         <div>
           <Route path='/dialogs' render={ () => 
-            <Dialogs state={props.state.dialogsPage} />} />
+            <Dialogs store={props.store}  />} />
           <Route path='/profile' component={ () => 
             <Profile 
               profilePage={props.state.profilePage}
-              addPost={props.addPost} />} />
+              dispatch={props.dispatch} />} />
         </div>
       </div>
     </BrowserRouter>
